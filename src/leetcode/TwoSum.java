@@ -27,13 +27,13 @@ public class TwoSum {
     * if pair sum = target -> add to result list
     * */
     public static int[] twoSum(int[] nums, int target) {
-
-        for(int i = 0; i < nums.length;i++){
-            for(int j = 0; j < nums.length;j++) {
-                if (i != j && nums[i] + nums[j] == target) {
-                    return new int[]{i, j};
-                }
+        Map<Integer, Integer> seen = new HashMap<>();
+        for(int i = 0; i < nums.length; i++){
+            int complement = target - nums[i];
+            if(seen.containsKey(complement)) {
+                return new int[] {i, seen.get(complement)};
             }
+            seen.put(nums[i], i);
         }
         return new int[]{};
     }
