@@ -13,25 +13,15 @@ import java.util.Set;
 
 public class PalindromeNumber {
 
-    // String operations -> toString -> iterating from 2 sides
-    // Filling set by digits -> set.size() > ceil(x.length / 2) -> palindrome
+    // faster approach with math operations only
     public static boolean isPalindrome(int x) {
-        String stringX = String.valueOf(x);
-        int length = stringX.length();
-        if(x < 0 || (x%10==0 && x!=0)){
-            return false;
+        if(x<0|| (x%10==0 && x!=0)) return false;
+        int rev= 0;
+        while(x>rev) {
+            rev = rev*10 + x % 10;
+            x=x/10;
         }
-        if (x < 10) {
-            return true;
-        }
-        else {
-            for(int i = 0, j = length - 1; i < (double) (length - 1) / 2; i++, j--) {
-                if (stringX.charAt(i) != stringX.charAt(j)) {
-                    return false;
-                }
-            }
-        }
-        return true;
+        return (x==rev)|| (x==rev/10);
     }
 
     public static void main(String[] args) {
