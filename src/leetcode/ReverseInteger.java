@@ -1,3 +1,5 @@
+package leetcode;
+
 public class ReverseInteger {
     public static int reverse(int x) {
         int r = 0;
