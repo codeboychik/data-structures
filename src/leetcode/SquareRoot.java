@@ -13,7 +13,6 @@ public class SquareRoot {
     // Newton formula
     public static int mySqrt(int x) {
         double step = 1;
-        Math.sqrt(1.1);
         while (Math.round(((step + x/step) / 2) * ((step + x/step) / 2)) != x) {
             step += 1;
         }
