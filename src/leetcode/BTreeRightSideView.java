@@ -40,7 +40,6 @@ public class BTreeRightSideView {
             TreeNode rightmost = null;
 
             for (int i = 0; i < levelSize; i++) {
-                System.gc();
                 TreeNode node = q.poll();
                 rightmost = node;           // last node processed in this level = rightmost
                 if (node.left != null) q.add(node.left);
